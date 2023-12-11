@@ -13,23 +13,22 @@
        <div class="nav-items">
         <a href="index.html">Home</a>
         <a href="trending.html">Trending</a>
-        <a href="about.html">About</a>
-        <a href="settings.html">Settings</a>
        </div> 
     </nav>
-    <section class="hero">
-        <div class="hero-container">
-            <div class="column-left">
-                <!-- Text -->
-                <h1>Trending</h1>
-                </div>
-        </div>
-    </section>
+    <h1>Trending Books</h1>
+
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search for books...">
+        <button onclick="searchBooks()">Search</button>
+    </div>
+
+    <div id="books-container"></div>
+
+    <script src="main.js"></script>
     <footer>
         <div class="row primary">
             <div class="column about">
                 <h3>© Aydin Joshi, 2024</h3>
-                <p class="intro">Fire Reads is an innovation project built by the LRA Hypotheticals</p>
                 <a href="https://lrarobotics.wixsite.com/hypotheticals" id="website">Our Website</a>
             </div>
         </div>

@@ -3,19 +3,24 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function fetchTrendingBooks() {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=trending`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=subject:bestsellers`)
         .then(response => response.json())
-        .then(data => displayTrendingBooks(data.items.slice(0, 6))) // Displaying only 6 trending books
-        .catch(error => console.error('Error:', error));
+        .then(data => {
+            if (data.items && data.items.length > 0) {
+                displayTrendingBooks(data.items.slice(0, 6)); // Displaying up to 6 books
+            } else {
+                throw new Error('No trending books found');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            const trendingBooksContainer = document.getElementById('trending-books-container');
+            trendingBooksContainer.innerHTML = '<p>No trending books found.</p>';
+        });
 }
 
 function displayTrendingBooks(books) {
     const trendingBooksContainer = document.getElementById('trending-books-container');
-
-    if (!books || books.length === 0) {
-        trendingBooksContainer.innerHTML = '<p>No trending books found.</p>';
-        return;
-    }
 
     books.forEach(book => {
         const volumeInfo = book.volumeInfo;

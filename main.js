@@ -1,3 +1,39 @@
+document.addEventListener('DOMContentLoaded', function() {
+    searchBooks(); // Display default search results on page load
+    fetchOurBooks(); // Fetch and display Harry Potter books
+});
+
+/* Fetch Harry Potter books */
+function fetchOurBooks() {
+    fetch('https://www.googleapis.com/books/v1/volumes?q=intitle:harry%20potter')
+        .then(response => response.json())
+        .then(data => {
+            if (data.items && data.items.length > 0) {
+                displayOurBooks(data.items); // Display all Harry Potter books
+            } else {
+                const ourPicksContainer = document.getElementById('our-picks-container');
+                ourPicksContainer.innerHTML = '<p>No Harry Potter books found.</p>';
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+/* Display Harry Potter books in the 'Our Picks' section */
+function displayOurBooks(books) {
+    const ourPicksContainer = document.getElementById('our-picks-container');
+
+    if (!books || books.length === 0) {
+        ourPicksContainer.innerHTML = '<p>No Harry Potter books found.</p>';
+        return;
+    }
+
+    books.forEach(book => {
+        const volumeInfo = book.volumeInfo;
+        const bookElement = createBookElement(volumeInfo);
+        ourPicksContainer.appendChild(bookElement);
+    });
+}
+
 
 /* Searches for a book */
 function searchBooks() {

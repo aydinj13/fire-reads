@@ -76,3 +76,7 @@ function displayBooks(books) {
         booksContainer.appendChild(bookElement);
     });
 }
+
+function goBack() {
+    window.history.back();
+}

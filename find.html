@@ -30,15 +30,21 @@
     <h1>Book Search</h1>
 
     <div id="search-container">
-        <input type="text" id="search-input" placeholder="Search for books...">
+        <input type="text" id="search-input" placeholder="Title or ISBN">
         <button class="button-search" onclick="searchBooks()">Search</button>
     </div>
 
-    <h2>Trending Now</h2>
-    <div id="trending-books-container"></div>
+    
 
     <h2>Search Results</h2>
     <div id="books-container"></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-description" class="modal-description"></div>
+        </div>
+    </div>
 
     <script src="main.js"></script>
     

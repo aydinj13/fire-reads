@@ -5,6 +5,7 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* Nav Bar Design */
 nav {
     height: 80px;
     background: #cda607;
@@ -23,6 +24,7 @@ nav {
     padding: 0 2rem;
 }
 
+/* Nav Items */
 nav a {
    text-decoration: none;
    color: #000;
@@ -100,7 +102,7 @@ button:hover {
 }
 
 
-
+/* Changes size of items */
 @media screen and (max-width: 768px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -176,4 +178,8 @@ h1 {
 .github {
     width: 100%;
     height: 100%;
+}
+
+.book p {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }

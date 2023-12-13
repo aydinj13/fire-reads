@@ -233,3 +233,27 @@ h1 {
 
 }
 
+.our-picks-container {
+    display: flex; /* Use flexbox */
+    flex-wrap: nowrap; /* Prevent wrapping to a new line */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    gap: 10px; /* Spacing between books */
+    padding: 10px 0; /* Adjust as needed */
+}
+
+
+
+.our-picks-books {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Display books in a column */
+    gap: 10px; /* Spacing between books */
+    padding-left: 20px; /* Adjust as needed */
+}
+
+
+
+/* Individual book style */
+.book {
+    /* Your book styles */
+    width: 200px; /* Set a fixed width for each book */
+}

@@ -44,3 +44,4 @@ function displayBooks(books) {
 function goBack() {
     window.history.back();
 }
+

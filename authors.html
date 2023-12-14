@@ -44,24 +44,23 @@
   </h1>
 
     <div id="search-container">
-        <input type="text" id="search-input" placeholder="Author - use a dash for spaces">
+        <input type="text" id="search-input" placeholder="Author">
         <button class="button-search" onclick="searchBooks()">Search</button>
     </div>
 
-    <div id="our-picks-books-rowling" class="our-picks-books">
-      <!-- Books for J.K. Rowling will be displayed here -->
-    </div>
     
-    <div id="our-picks-books-riordan" class="our-picks-books">
-      <!-- Books for Rick Riordan will be displayed here -->
-    </div>
-    
-    <div id="our-picks-books-gibbs" class="our-picks-books">
-      <!-- Books for Stuart Gibbs will be displayed here -->
-    </div>
-
     <h2>Search Results</h2>
     <div id="books-container"></div>
+
+
+  
+  <!-- Modal structure -->
+  <div id="modal" class="modal">
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <div id="modal-description" class="modal-description"></div>
+      </div>
+  </div>
 
     <div id="modal" class="modal">
         <div class="modal-content">

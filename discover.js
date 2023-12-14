@@ -1,9 +1,10 @@
 
+
 /* Searches for a book */
 function searchBooks() {
     const searchInput = document.getElementById('search-input').value;
 
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=genre:${searchInput}`)
         .then(response => response.json())
         .then(data => displayBooks(data.items))
         .catch(error => console.error('Error:', error));
@@ -45,3 +46,35 @@ function goBack() {
     window.history.back();
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    // Add event listeners to book elements to display the description on click
+    const bookElements = document.querySelectorAll('.book');
+    bookElements.forEach(book => {
+        book.addEventListener('click', () => {
+            const description = book.getAttribute('data-description');
+            displayModal(description);
+        });
+    });
+
+    // Function to display the modal with the description
+    function displayModal(description) {
+        const modalDescription = document.getElementById('modal-description');
+        modalDescription.textContent = description;
+
+        const modal = document.getElementById('modal');
+        modal.style.display = 'block';
+
+        // Close the modal when the 'x' (close) button is clicked
+        const closeButton = document.querySelector('.close');
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Close the modal when clicking outside the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+});

@@ -1,9 +1,10 @@
 
+
 /* Searches for a book */
 function searchBooks() {
     const searchInput = document.getElementById('search-input').value;
 
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${searchInput}`)
+    fetch(`https://www.googleapis.com/books/v1/volumes?q=author:${searchInput}`)
         .then(response => response.json())
         .then(data => displayBooks(data.items))
         .catch(error => console.error('Error:', error));

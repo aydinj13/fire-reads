@@ -248,6 +248,7 @@ h1 {
     flex-direction: column; /* Display books in a column */
     gap: 10px; /* Spacing between books */
     padding-left: 20px; /* Adjust as needed */
+    padding-top: 1px;
 }
 
 
